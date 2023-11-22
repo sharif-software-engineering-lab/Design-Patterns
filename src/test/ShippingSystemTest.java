@@ -1,18 +1,22 @@
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
+import main.java.*;
+import main.java.shippingstrategy.*;
+import main.java.packagestate.*;
+
 
 public class ShippingSystemTest {
 
-    private Package aPackage;
+    private Box aPackage;
     private ShippingStrategy standardShipping;
     private ShippingStrategy expressShipping;
 
     @Before
     public void setUp() {
-        standardShipping = new StandardShippingStrategy();
-        expressShipping = new ExpressShippingStrategy();
-        aPackage = new Package(5); // Assuming constructor takes weight
+        standardShipping = new StandardShipping();
+        expressShipping = new ExpressShipping();
+        aPackage = new Box(5); // Assuming constructor takes weight
         aPackage.setShippingStrategy(standardShipping); // Set initial shipping strategy
     }
 
